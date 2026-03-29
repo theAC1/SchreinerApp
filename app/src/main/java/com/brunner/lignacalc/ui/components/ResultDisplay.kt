@@ -8,7 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.brunner.lignacalc.ui.theme.GreenOk
+import com.brunner.lignacalc.ui.theme.GreenBg
 import com.brunner.lignacalc.ui.theme.RedBad
+import com.brunner.lignacalc.ui.theme.RedBg
 
 @Composable
 fun ResultCard(
@@ -22,8 +24,8 @@ fun ResultCard(
         modifier = modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = when (isGood) {
-                true -> GreenOk.copy(alpha = 0.12f)
-                false -> RedBad.copy(alpha = 0.12f)
+                true -> GreenBg
+                false -> RedBg
                 null -> MaterialTheme.colorScheme.surfaceVariant
             }
         )
