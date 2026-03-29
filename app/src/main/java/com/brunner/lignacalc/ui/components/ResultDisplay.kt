@@ -1,16 +1,18 @@
 package com.brunner.lignacalc.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.brunner.lignacalc.ui.theme.GreenOk
-import com.brunner.lignacalc.ui.theme.GreenBg
-import com.brunner.lignacalc.ui.theme.RedBad
-import com.brunner.lignacalc.ui.theme.RedBg
+import androidx.compose.ui.unit.sp
+import com.brunner.lignacalc.ui.theme.*
 
 @Composable
 fun ResultCard(
@@ -20,45 +22,84 @@ fun ResultCard(
     suffix: String? = null,
     isGood: Boolean? = null // null = neutral, true = grün, false = rot
 ) {
-    Card(
-        modifier = modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = when (isGood) {
-                true -> GreenBg
-                false -> RedBg
-                null -> MaterialTheme.colorScheme.surfaceVariant
-            }
-        )
+    val bgColor = when (isGood) {
+        true -> GreenBg
+        false -> RedBg
+        null -> Sand
+    }
+    val accentColor = when (isGood) {
+        true -> GreenOk
+        false -> RedBad
+        null -> WalnutPale
+    }
+
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(14.dp))
+            .background(bgColor)
     ) {
-        Row(
+        // Seitenstreifen links
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .width(4.dp)
+                .fillMaxHeight()
+                .background(accentColor)
+        )
+
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+                .padding(start = 18.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
         ) {
-            Text(
-                text = label,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            // Status-Zeile mit Dot
+            if (isGood != null) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(8.dp)
+                            .clip(CircleShape)
+                            .background(accentColor)
+                    )
+                    Text(
+                        text = label.uppercase(),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = accentColor,
+                        letterSpacing = 0.8.sp
+                    )
+                }
+                Spacer(modifier = Modifier.height(6.dp))
+            } else {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = TextSecondary
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+            }
+
+            // Wert
+            Row(
+                verticalAlignment = Alignment.Baseline,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
                 Text(
                     text = value,
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineLarge.copy(
+                        fontSize = if (isGood != null) 30.sp else 22.sp
+                    ),
                     fontWeight = FontWeight.Bold,
-                    color = when (isGood) {
-                        true -> GreenOk
-                        false -> RedBad
-                        null -> MaterialTheme.colorScheme.onSurface
-                    }
+                    color = TextPrimary
                 )
                 if (suffix != null) {
-                    Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = suffix,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = TextSecondary
                     )
                 }
             }

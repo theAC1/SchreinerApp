@@ -33,9 +33,9 @@ fun GoldenerSchnittScreen(onBack: () -> Unit) {
     CalculatorScaffold(
         title = stringResource(R.string.tool_goldener_schnitt),
         onBack = onBack,
-        infoText = stringResource(R.string.info_goldener_schnitt)
+        infoText = stringResource(R.string.info_goldener_schnitt),
+        formula = "(a + b) : a = 1.618"
     ) {
-        Spacer(modifier = Modifier.height(8.dp))
 
         // Input-Typ Auswahl
         Row(

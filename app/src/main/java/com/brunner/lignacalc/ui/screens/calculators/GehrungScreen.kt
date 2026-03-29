@@ -29,9 +29,9 @@ fun GehrungScreen(onBack: () -> Unit) {
     CalculatorScaffold(
         title = stringResource(R.string.tool_gehrung),
         onBack = onBack,
-        infoText = stringResource(R.string.info_gehrung)
+        infoText = stringResource(R.string.info_gehrung),
+        formula = "d = \u221A(x\u00B2 + y\u00B2 \u2212 2xy\u00B7cos(180\u2212\u03B3))"
     ) {
-        Spacer(modifier = Modifier.height(8.dp))
 
         // TODO: Vektor-Illustration der Gehrung hier einfügen
 

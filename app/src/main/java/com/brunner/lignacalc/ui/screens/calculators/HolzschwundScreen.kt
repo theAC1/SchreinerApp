@@ -36,9 +36,9 @@ fun HolzschwundScreen(onBack: () -> Unit) {
     CalculatorScaffold(
         title = stringResource(R.string.tool_holzschwund),
         onBack = onBack,
-        infoText = stringResource(R.string.info_holzschwund)
+        infoText = stringResource(R.string.info_holzschwund),
+        formula = "S = L \u00D7 (Koeffizient \u00D7 \u0394 Feuchte%)"
     ) {
-        Spacer(modifier = Modifier.height(8.dp))
 
         MaterialDropdown(
             items = WoodData.types,

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LignaCalc</string>
+    <string name="app_subtitle">Calculateur d\'atelier</string>
 
     <string name="tool_schnittgeschwindigkeit">Vitesse de coupe</string>
     <string name="tool_schnittgeschwindigkeit_sub">Calculer et vérifier Vc</string>

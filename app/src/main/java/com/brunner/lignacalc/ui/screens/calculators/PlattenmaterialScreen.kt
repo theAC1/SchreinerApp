@@ -29,9 +29,9 @@ fun PlattenmaterialScreen(onBack: () -> Unit) {
     CalculatorScaffold(
         title = stringResource(R.string.tool_plattenmaterial),
         onBack = onBack,
-        infoText = stringResource(R.string.info_plattenmaterial)
+        infoText = stringResource(R.string.info_plattenmaterial),
+        formula = "G = L \u00D7 B \u00D7 D \u00D7 Faktor"
     ) {
-        Spacer(modifier = Modifier.height(8.dp))
 
         MaterialDropdown(
             items = MaterialData.materials,

@@ -1,27 +1,35 @@
 package com.brunner.lignacalc.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.material.icons.outlined.Star
-import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.brunner.lignacalc.R
 import com.brunner.lignacalc.data.FavoritesRepository
 import com.brunner.lignacalc.ui.navigation.Screen
+import com.brunner.lignacalc.ui.theme.*
 import kotlinx.coroutines.launch
 
 data class CalculatorTool(
@@ -54,78 +62,166 @@ fun HomeScreen(
     )
 
     val favoriteTools = tools.filter { it.route in favorites }
-    val allTools = tools
 
     Scaffold(
-        topBar = {
-            LargeTopAppBar(
-                title = {
-                    Text("LignaCalc")
-                },
-                actions = {
-                    IconButton(onClick = onOpenSettings) {
-                        Icon(Icons.Default.Language, contentDescription = stringResource(R.string.language))
-                    }
-                },
-                colors = TopAppBarDefaults.largeTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                    titleContentColor = MaterialTheme.colorScheme.primary
-                )
-            )
-        }
+        containerColor = Cream
     ) { padding ->
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
-                .padding(horizontal = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            contentPadding = PaddingValues(bottom = 16.dp)
+                .padding(padding),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            contentPadding = PaddingValues(bottom = 24.dp)
         ) {
-            // Favoriten-Sektion
+            // ===== HEADER =====
+            item(span = { GridItemSpan(2) }) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 22.dp, end = 14.dp, top = 16.dp, bottom = 4.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column {
+                        Text(
+                            text = "LignaCalc",
+                            style = MaterialTheme.typography.headlineLarge,
+                            color = WalnutDeep
+                        )
+                        Text(
+                            text = stringResource(R.string.app_subtitle),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = TextMuted
+                        )
+                    }
+                    IconButton(onClick = onOpenSettings) {
+                        Icon(
+                            Icons.Default.Language,
+                            contentDescription = stringResource(R.string.language),
+                            tint = WalnutPale
+                        )
+                    }
+                }
+            }
+
+            // ===== FAVORITEN HORIZONTAL =====
             if (favoriteTools.isNotEmpty()) {
                 item(span = { GridItemSpan(2) }) {
-                    Text(
-                        text = stringResource(R.string.favorites),
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
+                    SectionLabel(
+                        text = "\u2605 ${stringResource(R.string.favorites)}",
+                        color = CraftGold
                     )
                 }
-                items(favoriteTools) { tool ->
-                    ToolCard(
-                        tool = tool,
-                        isFavorite = true,
-                        onClick = { onNavigateToCalculator(tool.route) },
-                        onToggleFavorite = { scope.launch { favoritesRepo.toggleFavorite(tool.route) } }
-                    )
+                item(span = { GridItemSpan(2) }) {
+                    Row(
+                        modifier = Modifier
+                            .horizontalScroll(rememberScrollState())
+                            .padding(horizontal = 22.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        favoriteTools.forEach { tool ->
+                            FavoriteCard(
+                                tool = tool,
+                                onClick = { onNavigateToCalculator(tool.route) }
+                            )
+                        }
+                    }
                 }
 
-                // Trennlinie
+                // Divider
                 item(span = { GridItemSpan(2) }) {
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 22.dp, vertical = 4.dp)
+                            .height(1.dp)
+                            .background(
+                                Brush.horizontalGradient(
+                                    colors = listOf(SandDark, Cream)
+                                )
+                            )
+                    )
                 }
             }
 
-            // Alle Tools
+            // ===== ALLE RECHNER =====
             item(span = { GridItemSpan(2) }) {
-                Text(
+                SectionLabel(
                     text = stringResource(R.string.all_tools),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
+                    color = TextMuted
                 )
             }
-            items(allTools) { tool ->
+
+            items(tools) { tool ->
                 ToolCard(
                     tool = tool,
                     isFavorite = tool.route in favorites,
                     onClick = { onNavigateToCalculator(tool.route) },
-                    onToggleFavorite = { scope.launch { favoritesRepo.toggleFavorite(tool.route) } }
+                    onToggleFavorite = { scope.launch { favoritesRepo.toggleFavorite(tool.route) } },
+                    modifier = Modifier.padding(
+                        start = if (tools.indexOf(tool) % 2 == 0) 22.dp else 0.dp,
+                        end = if (tools.indexOf(tool) % 2 == 1) 22.dp else 0.dp
+                    )
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun SectionLabel(text: String, color: androidx.compose.ui.graphics.Color) {
+    Text(
+        text = text.uppercase(),
+        style = MaterialTheme.typography.labelLarge,
+        color = color,
+        modifier = Modifier.padding(start = 22.dp, top = 4.dp, bottom = 4.dp)
+    )
+}
+
+@Composable
+private fun FavoriteCard(
+    tool: CalculatorTool,
+    onClick: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .width(120.dp)
+            .clip(RoundedCornerShape(14.dp))
+            .background(
+                Brush.linearGradient(
+                    colors = listOf(
+                        WalnutDeep.copy(alpha = 0.9f),
+                        WalnutDeep
+                    )
+                )
+            )
+            .clickable(onClick = onClick)
+            .padding(14.dp)
+    ) {
+        Column {
+            Box(
+                modifier = Modifier
+                    .size(30.dp)
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(CraftGold.copy(alpha = 0.15f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = tool.icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp),
+                    tint = CraftGold
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = stringResource(tool.titleRes),
+                style = MaterialTheme.typography.labelMedium,
+                color = TextOnDark.copy(alpha = 0.85f),
+                lineHeight = 15.sp
+            )
         }
     }
 }
@@ -135,17 +231,17 @@ private fun ToolCard(
     tool: CalculatorTool,
     isFavorite: Boolean,
     onClick: () -> Unit,
-    onToggleFavorite: () -> Unit
+    onToggleFavorite: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .aspectRatio(1f)
             .clickable(onClick = onClick),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        shape = RoundedCornerShape(14.dp),
+        colors = CardDefaults.cardColors(containerColor = WarmWhite),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             // Stern oben rechts
@@ -153,43 +249,51 @@ private fun ToolCard(
                 onClick = onToggleFavorite,
                 modifier = Modifier
                     .align(Alignment.TopEnd)
-                    .size(36.dp)
+                    .size(34.dp)
             ) {
                 Icon(
                     imageVector = if (isFavorite) Icons.Default.Star else Icons.Default.StarOutline,
                     contentDescription = null,
-                    tint = if (isFavorite) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.outline,
-                    modifier = Modifier.size(20.dp)
+                    tint = if (isFavorite) CraftGold else SandDark,
+                    modifier = Modifier.size(16.dp)
                 )
             }
 
-            // Content
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp),
+                    .padding(14.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Icon(
-                    imageVector = tool.icon,
-                    contentDescription = null,
-                    modifier = Modifier.size(40.dp),
-                    tint = MaterialTheme.colorScheme.primary
-                )
+                // Icon-Box
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Sand),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = tool.icon,
+                        contentDescription = null,
+                        modifier = Modifier.size(22.dp),
+                        tint = Walnut
+                    )
+                }
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
                     text = stringResource(tool.titleRes),
                     style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = TextPrimary
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(2.dp))
                 Text(
                     text = stringResource(tool.subtitleRes),
                     style = MaterialTheme.typography.bodySmall,
                     textAlign = TextAlign.Center,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = TextMuted
                 )
             }
         }

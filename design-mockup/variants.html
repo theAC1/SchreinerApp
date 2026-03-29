@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LignaCalc — Design Varianten</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #1a1714;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #E8E0D6;
+}
+
+h2.section-title {
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #8B6B61;
+  margin-bottom: 40px;
+}
+
+.variants-row {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.variant-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.variant-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FF8F00;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.variant-desc {
+  font-size: 12px;
+  color: #8B7B6B;
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+/* Phone */
+.phone {
+  width: 340px;
+  height: 720px;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #333, 0 20px 60px rgba(0,0,0,0.5);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.phone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 30px;
+  background: #1a1a1a;
+  border-radius: 0 0 16px 16px;
+  z-index: 100;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.screen::-webkit-scrollbar { display: none; }
+
+/* =================== VARIANT A: WARM CRAFT =================== */
+.va { background: #FAF6F1; }
+
+.va .header {
+  padding: 48px 22px 18px;
+}
+
+.va .header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #2C1810;
+  font-optical-sizing: auto;
+}
+
+.va .header h1 span {
+  color: #C17817;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.va .header .sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: #9A8878;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.va .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.va .lang-btn {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  border: 1.5px solid #E0D5C8;
+  background: none;
+  color: #9A8878;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.va .fav-section {
+  padding: 4px 22px 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #C17817;
+}
+
+.va .fav-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 0 22px 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.va .fav-card {
+  flex-shrink: 0;
+  width: 110px;
+  background: linear-gradient(145deg, #3D2B1F, #2C1810);
+  border-radius: 14px;
+  padding: 14px 12px;
+  position: relative;
+}
+
+.va .fav-card .fav-icon {
+  width: 28px; height: 28px;
+  background: rgba(193,120,23,0.15);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C17817;
+  font-size: 14px;
+}
+
+.va .fav-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.35;
+}
+
+.va .divider {
+  height: 1px;
+  margin: 4px 22px 8px;
+  background: linear-gradient(to right, #E0D5C8, transparent);
+}
+
+.va .all-label {
+  padding: 0 22px 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #B0A090;
+}
+
+.va .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 22px 30px;
+}
+
+.va .card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 16px 14px;
+  border: 1px solid rgba(44,24,16,0.04);
+  position: relative;
+}
+
+.va .card .card-icon {
+  width: 40px; height: 40px;
+  background: #F5EDE3;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: #5D3A1A;
+  font-size: 18px;
+}
+
+.va .card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2C1810;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.va .card p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10.5px;
+  color: #B0A090;
+}
+
+.va .card .star {
+  position: absolute;
+  top: 8px; right: 8px;
+  font-size: 12px;
+  color: #D4C8BA;
+}
+
+.va .card .star.on { color: #C17817; }
+
+/* =================== VARIANT B: DARK WORKSHOP =================== */
+.vb { background: #141210; }
+
+.vb .header {
+  padding: 48px 22px 18px;
+}
+
+.vb .header h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #F0E8DC;
+  letter-spacing: -0.5px;
+}
+
+.vb .header h1 span {
+  color: #E8A838;
+  font-weight: 300;
+}
+
+.vb .header .sub {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  color: #6B5D50;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 3px;
+}
+
+.vb .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vb .lang-btn {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  border: 1px solid #2A2520;
+  background: #1E1B18;
+  color: #6B5D50;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vb .fav-section {
+  padding: 4px 22px 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #E8A838;
+}
+
+.vb .fav-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 0 22px 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.vb .fav-card {
+  flex-shrink: 0;
+  width: 110px;
+  background: linear-gradient(145deg, #252018, #1A1612);
+  border: 1px solid #2A2520;
+  border-radius: 14px;
+  padding: 14px 12px;
+}
+
+.vb .fav-card .fav-icon {
+  width: 28px; height: 28px;
+  background: rgba(232,168,56,0.1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E8A838;
+  font-size: 14px;
+}
+
+.vb .fav-card h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(240,232,220,0.75);
+  line-height: 1.35;
+}
+
+.vb .divider {
+  height: 1px;
+  margin: 4px 22px 8px;
+  background: linear-gradient(to right, #2A2520, transparent);
+}
+
+.vb .all-label {
+  padding: 0 22px 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #4A4038;
+}
+
+.vb .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 22px 30px;
+}
+
+.vb .card {
+  background: #1E1B18;
+  border-radius: 14px;
+  padding: 16px 14px;
+  border: 1px solid #2A2520;
+  position: relative;
+}
+
+.vb .card .card-icon {
+  width: 40px; height: 40px;
+  background: #252018;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: #C8A060;
+  font-size: 18px;
+}
+
+.vb .card h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #E0D8CC;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.vb .card p {
+  font-family: 'Sora', sans-serif;
+  font-size: 10.5px;
+  color: #5A5040;
+}
+
+.vb .card .star {
+  position: absolute;
+  top: 8px; right: 8px;
+  font-size: 12px;
+  color: #2A2520;
+}
+
+.vb .card .star.on { color: #E8A838; }
+
+/* =================== VARIANT C: SWISS PRECISION =================== */
+.vc { background: #F2EDE6; }
+
+.vc .header {
+  padding: 48px 22px 18px;
+  background: #1B1612;
+}
+
+.vc .header h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.3px;
+}
+
+.vc .header h1 span {
+  font-weight: 300;
+  color: #D4A54A;
+}
+
+.vc .header .sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 3px;
+}
+
+.vc .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vc .lang-btn {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vc .fav-section {
+  padding: 16px 22px 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #D4A54A;
+}
+
+.vc .fav-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 0 22px 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.vc .fav-card {
+  flex-shrink: 0;
+  width: 110px;
+  background: #1B1612;
+  border-radius: 12px;
+  padding: 14px 12px;
+}
+
+.vc .fav-card .fav-icon {
+  width: 28px; height: 28px;
+  background: rgba(212,165,74,0.12);
+  border-radius: 7px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4A54A;
+  font-size: 14px;
+}
+
+.vc .fav-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.35;
+}
+
+.vc .divider {
+  height: 1px;
+  margin: 4px 22px 8px;
+  background: linear-gradient(to right, #D8CFC2, transparent);
+}
+
+.vc .all-label {
+  padding: 0 22px 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #A09080;
+}
+
+.vc .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 22px 30px;
+}
+
+.vc .card {
+  background: #FDFAF7;
+  border-radius: 12px;
+  padding: 16px 14px;
+  border: 1px solid #E8E0D5;
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+
+.vc .card:hover {
+  box-shadow: 0 4px 16px rgba(27,22,18,0.08);
+}
+
+.vc .card .card-icon {
+  width: 40px; height: 40px;
+  background: #1B1612;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: #D4A54A;
+  font-size: 16px;
+}
+
+.vc .card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1B1612;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.vc .card p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5px;
+  color: #A09080;
+}
+
+.vc .card .star {
+  position: absolute;
+  top: 8px; right: 8px;
+  font-size: 12px;
+  color: #D8CFC2;
+}
+
+.vc .card .star.on { color: #D4A54A; }
+
+/* Vote buttons */
+.vote-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 60px;
+  padding-bottom: 40px;
+}
+
+.vote-hint {
+  text-align: center;
+  font-size: 14px;
+  color: #6B5D50;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<h2 class="section-title">LignaCalc — Design Varianten</h2>
+
+<div class="variants-row">
+
+  <!-- VARIANT A -->
+  <div class="variant-wrap">
+    <div class="variant-label">A — Warm Craft</div>
+    <div class="variant-desc">
+      <strong>Fraunces</strong> (Serif, kursiv-Akzent) + <strong>Outfit</strong> (Body)<br>
+      Warme Brauntöne, Craft-Feeling, heller Hintergrund
+    </div>
+    <div class="phone">
+      <div class="screen va">
+        <div class="header">
+          <div class="header-top">
+            <div>
+              <h1>Ligna<span>Calc</span></h1>
+              <p class="sub">Werkstatt-Rechner</p>
+            </div>
+            <button class="lang-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 014 10 15 15 0 01-4 10 15 15 0 01-4-10 15 15 0 014-10z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="fav-section">&#9733; Favoriten</div>
+        <div class="fav-scroll">
+          <div class="fav-card"><div class="fav-icon">&#9096;</div><h3>Schnitt-geschwindigkeit</h3></div>
+          <div class="fav-card"><div class="fav-icon">&#9651;</div><h3>Falsche Gehrung</h3></div>
+          <div class="fav-card"><div class="fav-icon">&#8644;</div><h3>Einheiten-rechner</h3></div>
+        </div>
+        <div class="divider"></div>
+        <div class="all-label">Alle Rechner</div>
+        <div class="grid">
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#9096;</div><h3>Schnitt-geschwindigkeit</h3><p>Vc berechnen</p></div>
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#9651;</div><h3>Falsche Gehrung</h3><p>Winkel berechnen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9881;</div><h3>Zahnschritt-rechner</h3><p>Vorschub / Zahn</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9676;</div><h3>Restlänge Kanten</h3><p>Material auf Rolle</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9633;</div><h3>Gewicht Platten</h3><p>Gewicht berechnen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#966;</div><h3>Goldener Schnitt</h3><p>Proportionen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9649;</div><h3>Holzschwund</h3><p>Schwund / Holzart</p></div>
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#8644;</div><h3>Einheiten-rechner</h3><p>Längen & Flächen</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VARIANT B -->
+  <div class="variant-wrap">
+    <div class="variant-label">B — Dark Workshop</div>
+    <div class="variant-desc">
+      <strong>Sora</strong> (clean, geometrisch) durchgängig<br>
+      Dunkles Theme, Gold-Akzente, Werkstatt-Atmosphäre
+    </div>
+    <div class="phone">
+      <div class="screen vb">
+        <div class="header">
+          <div class="header-top">
+            <div>
+              <h1>Ligna<span>Calc</span></h1>
+              <p class="sub">Werkstatt-Rechner</p>
+            </div>
+            <button class="lang-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 014 10 15 15 0 01-4 10 15 15 0 01-4-10 15 15 0 014-10z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="fav-section">&#9733; Favoriten</div>
+        <div class="fav-scroll">
+          <div class="fav-card"><div class="fav-icon">&#9096;</div><h3>Schnitt-geschwindigkeit</h3></div>
+          <div class="fav-card"><div class="fav-icon">&#9651;</div><h3>Falsche Gehrung</h3></div>
+          <div class="fav-card"><div class="fav-icon">&#8644;</div><h3>Einheiten-rechner</h3></div>
+        </div>
+        <div class="divider"></div>
+        <div class="all-label">Alle Rechner</div>
+        <div class="grid">
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#9096;</div><h3>Schnitt-geschwindigkeit</h3><p>Vc berechnen</p></div>
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#9651;</div><h3>Falsche Gehrung</h3><p>Winkel berechnen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9881;</div><h3>Zahnschritt-rechner</h3><p>Vorschub / Zahn</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9676;</div><h3>Restlänge Kanten</h3><p>Material auf Rolle</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9633;</div><h3>Gewicht Platten</h3><p>Gewicht berechnen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#966;</div><h3>Goldener Schnitt</h3><p>Proportionen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9649;</div><h3>Holzschwund</h3><p>Schwund / Holzart</p></div>
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#8644;</div><h3>Einheiten-rechner</h3><p>Längen & Flächen</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VARIANT C -->
+  <div class="variant-wrap">
+    <div class="variant-label">C — Swiss Precision</div>
+    <div class="variant-desc">
+      <strong>Plus Jakarta Sans</strong> (modern, präzis) durchgängig<br>
+      Dunkler Header, heller Body, Gold-Akzente, Kontrast-Icons
+    </div>
+    <div class="phone">
+      <div class="screen vc">
+        <div class="header">
+          <div class="header-top">
+            <div>
+              <h1>Ligna<span>Calc</span></h1>
+              <p class="sub">Werkstatt-Rechner</p>
+            </div>
+            <button class="lang-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 014 10 15 15 0 01-4 10 15 15 0 01-4-10 15 15 0 014-10z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="fav-section">&#9733; Favoriten</div>
+        <div class="fav-scroll">
+          <div class="fav-card"><div class="fav-icon">&#9096;</div><h3>Schnitt-geschwindigkeit</h3></div>
+          <div class="fav-card"><div class="fav-icon">&#9651;</div><h3>Falsche Gehrung</h3></div>
+          <div class="fav-card"><div class="fav-icon">&#8644;</div><h3>Einheiten-rechner</h3></div>
+        </div>
+        <div class="fav-section" style="color: #A09080;">Alle Rechner</div>
+        <div class="grid">
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#9096;</div><h3>Schnitt-geschwindigkeit</h3><p>Vc berechnen</p></div>
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#9651;</div><h3>Falsche Gehrung</h3><p>Winkel berechnen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9881;</div><h3>Zahnschritt-rechner</h3><p>Vorschub / Zahn</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9676;</div><h3>Restlänge Kanten</h3><p>Material auf Rolle</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9633;</div><h3>Gewicht Platten</h3><p>Gewicht berechnen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#966;</div><h3>Goldener Schnitt</h3><p>Proportionen</p></div>
+          <div class="card"><span class="star">&#9734;</span><div class="card-icon">&#9649;</div><h3>Holzschwund</h3><p>Schwund / Holzart</p></div>
+          <div class="card"><span class="star on">&#9733;</span><div class="card-icon">&#8644;</div><h3>Einheiten-rechner</h3><p>Längen & Flächen</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="vote-hint">Öffne diese Datei im Browser: <code>design-mockup/variants.html</code></p>
+
+</body>
+</html>

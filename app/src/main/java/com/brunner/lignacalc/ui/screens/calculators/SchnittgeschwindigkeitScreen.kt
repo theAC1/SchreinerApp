@@ -42,9 +42,9 @@ fun SchnittgeschwindigkeitScreen(onBack: () -> Unit) {
     CalculatorScaffold(
         title = stringResource(R.string.tool_schnittgeschwindigkeit),
         onBack = onBack,
-        infoText = stringResource(R.string.info_schnittgeschwindigkeit)
+        infoText = stringResource(R.string.info_schnittgeschwindigkeit),
+        formula = "Vc = \u03C0 \u00D7 D \u00D7 n / 60\u2019000"
     ) {
-        Spacer(modifier = Modifier.height(8.dp))
 
         MaterialDropdown(
             items = CuttingSpeedData.materials,

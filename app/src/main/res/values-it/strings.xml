@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LignaCalc</string>
+    <string name="app_subtitle">Calcolatrice da officina</string>
 
     <string name="tool_schnittgeschwindigkeit">Velocità di taglio</string>
     <string name="tool_schnittgeschwindigkeit_sub">Calcola e verifica Vc</string>

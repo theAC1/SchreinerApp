@@ -29,9 +29,9 @@ fun ZahnvorschubScreen(onBack: () -> Unit) {
     CalculatorScaffold(
         title = stringResource(R.string.tool_zahnvorschub),
         onBack = onBack,
-        infoText = stringResource(R.string.info_zahnvorschub)
+        infoText = stringResource(R.string.info_zahnvorschub),
+        formula = "fz = (V \u00D7 1000) / (N \u00D7 Z)"
     ) {
-        Spacer(modifier = Modifier.height(8.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
