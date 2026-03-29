@@ -42,6 +42,10 @@
     <string name="lengths">Längen</string>
     <string name="areas">Flächen</string>
     <string name="source_unit">Ausgangseinheit</string>
+    <string name="favorites">Favoriten</string>
+    <string name="all_tools">Alle Rechner</string>
+    <string name="language">Sprache</string>
+    <string name="select_language">Sprache wählen</string>
 
     <!-- Info Texts -->
     <string name="info_gehrung">Berechnet die Winkel Alpha und Beta für eine falsche Gehrung aus dem Winkel Gamma sowie den Seitenlängen A und B.</string>

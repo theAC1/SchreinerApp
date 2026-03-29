@@ -40,6 +40,10 @@
     <string name="lengths">Lunghezze</string>
     <string name="areas">Superfici</string>
     <string name="source_unit">Unità di partenza</string>
+    <string name="favorites">Preferiti</string>
+    <string name="all_tools">Tutti gli strumenti</string>
+    <string name="language">Lingua</string>
+    <string name="select_language">Seleziona la lingua</string>
 
     <string name="info_gehrung">Calcola gli angoli Alpha e Beta per un taglio obliquo composto dall\'angolo Gamma e dalle lunghezze dei lati A e B.</string>
     <string name="info_schnittgeschwindigkeit">Calcola la velocità di taglio Vc dal diametro dell\'utensile e dai giri. Formula: Vc = π × D × n / 60.000. Verde = nell\'intervallo consigliato.</string>

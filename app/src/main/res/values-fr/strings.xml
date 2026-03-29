@@ -40,6 +40,10 @@
     <string name="lengths">Longueurs</string>
     <string name="areas">Surfaces</string>
     <string name="source_unit">Unité source</string>
+    <string name="favorites">Favoris</string>
+    <string name="all_tools">Tous les outils</string>
+    <string name="language">Langue</string>
+    <string name="select_language">Choisir la langue</string>
 
     <string name="info_gehrung">Calcule les angles Alpha et Bêta pour un onglet composé à partir de l\'angle Gamma et des longueurs A et B.</string>
     <string name="info_schnittgeschwindigkeit">Calcule la vitesse de coupe Vc à partir du diamètre de l\'outil et de la vitesse de rotation. Formule: Vc = π × D × n / 60 000. Vert = dans la plage recommandée.</string>

@@ -20,7 +20,7 @@ sealed class Screen(val route: String) {
 }
 
 @Composable
-fun AppNavigation(navController: NavHostController) {
+fun AppNavigation(navController: NavHostController, onOpenSettings: () -> Unit = {}) {
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route
@@ -29,7 +29,8 @@ fun AppNavigation(navController: NavHostController) {
             HomeScreen(
                 onNavigateToCalculator = { route ->
                     navController.navigate(route)
-                }
+                },
+                onOpenSettings = onOpenSettings
             )
         }
         composable(Screen.Gehrung.route) {

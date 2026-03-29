@@ -40,6 +40,10 @@
     <string name="lengths">Lengths</string>
     <string name="areas">Areas</string>
     <string name="source_unit">Source unit</string>
+    <string name="favorites">Favorites</string>
+    <string name="all_tools">All Tools</string>
+    <string name="language">Language</string>
+    <string name="select_language">Select Language</string>
 
     <string name="info_gehrung">Calculates angles Alpha and Beta for a compound miter from angle Gamma and side lengths A and B.</string>
     <string name="info_schnittgeschwindigkeit">Calculates cutting speed Vc from tool diameter and RPM. Formula: Vc = π × D × n / 60,000. Green = within recommended range.</string>
