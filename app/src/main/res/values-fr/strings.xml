@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LignaCalc</string>
+
+    <string name="tool_schnittgeschwindigkeit">Vitesse de coupe</string>
+    <string name="tool_schnittgeschwindigkeit_sub">Calculer et vérifier Vc</string>
+    <string name="tool_gehrung">Onglet composé</string>
+    <string name="tool_gehrung_sub">Calculer les angles</string>
+    <string name="tool_zahnvorschub">Avance par dent</string>
+    <string name="tool_zahnvorschub_sub">Avance par dent</string>
+    <string name="tool_kantenmaterial">Chant restant</string>
+    <string name="tool_kantenmaterial_sub">Longueur restante sur rouleau</string>
+    <string name="tool_plattenmaterial">Poids du panneau</string>
+    <string name="tool_plattenmaterial_sub">Calculer le poids</string>
+    <string name="tool_goldener_schnitt">Nombre d\'or</string>
+    <string name="tool_goldener_schnitt_sub">Calculer les proportions</string>
+    <string name="tool_holzschwund">Retrait du bois</string>
+    <string name="tool_holzschwund_sub">Retrait par essence</string>
+    <string name="tool_einheitenrechner">Convertisseur</string>
+    <string name="tool_einheitenrechner_sub">Longueurs et surfaces</string>
+
+    <string name="material">Matériau</string>
+    <string name="angle">Angle</string>
+    <string name="result">Résultat</string>
+    <string name="saegen">Sciage</string>
+    <string name="fraesen">Fraisage</string>
+    <string name="tool_diameter">Diamètre de l\'outil</string>
+    <string name="rpm">Vitesse de rotation</string>
+    <string name="result_vc">Résultat Vc</string>
+    <string name="recommended_range">Plage recommandée</string>
+    <string name="teeth">Dents</string>
+    <string name="result_restlaenge">Longueur restante</string>
+    <string name="result_weight">Résultat poids</string>
+    <string name="length">Longueur</string>
+    <string name="wood_type">Essence de bois</string>
+    <string name="moisture_change">Variation d\'humidité</string>
+    <string name="dimension">Dimension</string>
+    <string name="radial">radial</string>
+    <string name="tangential">tangentiel</string>
+    <string name="lengths">Longueurs</string>
+    <string name="areas">Surfaces</string>
+    <string name="source_unit">Unité source</string>
+
+    <string name="info_gehrung">Calcule les angles Alpha et Bêta pour un onglet composé à partir de l\'angle Gamma et des longueurs A et B.</string>
+    <string name="info_schnittgeschwindigkeit">Calcule la vitesse de coupe Vc à partir du diamètre de l\'outil et de la vitesse de rotation. Formule: Vc = π × D × n / 60 000. Vert = dans la plage recommandée.</string>
+    <string name="info_zahnvorschub">Calcule l\'avance par dent fz. Formule: fz = (V × 1000) / (N × Z).</string>
+    <string name="info_kantenmaterial">Calcule la longueur restante de chant sur un rouleau. Formule: Longueur = π × (ØA² − Øb²) / (4 × S × 1000).</string>
+    <string name="info_plattenmaterial">Calcule le poids d\'un panneau à partir des dimensions et du facteur de poids du matériau.</string>
+    <string name="info_goldener_schnitt">Le Nombre d\'or divise une ligne de sorte que le segment majeur se rapporte au mineur comme le total se rapporte au majeur. Facteur: 1,618.</string>
+    <string name="info_holzschwund">Calcule le retrait du bois en fonction de l\'essence et de la variation d\'humidité. Radial = perpendiculaire au fil, Tangentiel = le long des cernes.</string>
+</resources>

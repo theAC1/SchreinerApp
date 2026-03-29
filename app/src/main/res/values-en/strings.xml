@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LignaCalc</string>
+
+    <string name="tool_schnittgeschwindigkeit">Cutting Speed</string>
+    <string name="tool_schnittgeschwindigkeit_sub">Calculate and check Vc</string>
+    <string name="tool_gehrung">Compound Miter</string>
+    <string name="tool_gehrung_sub">Calculate angles</string>
+    <string name="tool_zahnvorschub">Tooth Feed Calculator</string>
+    <string name="tool_zahnvorschub_sub">Feed per tooth</string>
+    <string name="tool_kantenmaterial">Edge Band Remaining</string>
+    <string name="tool_kantenmaterial_sub">Remaining length on roll</string>
+    <string name="tool_plattenmaterial">Panel Weight</string>
+    <string name="tool_plattenmaterial_sub">Calculate weight</string>
+    <string name="tool_goldener_schnitt">Golden Ratio</string>
+    <string name="tool_goldener_schnitt_sub">Calculate proportions</string>
+    <string name="tool_holzschwund">Wood Shrinkage</string>
+    <string name="tool_holzschwund_sub">Shrinkage by wood type</string>
+    <string name="tool_einheitenrechner">Unit Converter</string>
+    <string name="tool_einheitenrechner_sub">Lengths and areas</string>
+
+    <string name="material">Material</string>
+    <string name="angle">Angle</string>
+    <string name="result">Result</string>
+    <string name="saegen">Sawing</string>
+    <string name="fraesen">Milling</string>
+    <string name="tool_diameter">Tool diameter</string>
+    <string name="rpm">RPM</string>
+    <string name="result_vc">Result Vc</string>
+    <string name="recommended_range">Recommended range</string>
+    <string name="teeth">Teeth</string>
+    <string name="result_restlaenge">Remaining length</string>
+    <string name="result_weight">Weight result</string>
+    <string name="length">Length</string>
+    <string name="wood_type">Wood type</string>
+    <string name="moisture_change">Moisture change</string>
+    <string name="dimension">Dimension</string>
+    <string name="radial">radial</string>
+    <string name="tangential">tangential</string>
+    <string name="lengths">Lengths</string>
+    <string name="areas">Areas</string>
+    <string name="source_unit">Source unit</string>
+
+    <string name="info_gehrung">Calculates angles Alpha and Beta for a compound miter from angle Gamma and side lengths A and B.</string>
+    <string name="info_schnittgeschwindigkeit">Calculates cutting speed Vc from tool diameter and RPM. Formula: Vc = π × D × n / 60,000. Green = within recommended range.</string>
+    <string name="info_zahnvorschub">Calculates feed per tooth fz. Formula: fz = (V × 1000) / (N × Z).</string>
+    <string name="info_kantenmaterial">Calculates remaining length of edge banding on a roll. Formula: Length = π × (ØA² − Øb²) / (4 × S × 1000).</string>
+    <string name="info_plattenmaterial">Calculates panel weight from dimensions and material-specific weight factor.</string>
+    <string name="info_goldener_schnitt">The Golden Ratio divides a line so that the larger segment (Major) relates to the smaller (Minor) as the total relates to the larger. Factor: 1.618.</string>
+    <string name="info_holzschwund">Calculates wood shrinkage based on wood species and moisture change. Radial = across grain, Tangential = along growth rings.</string>
+</resources>

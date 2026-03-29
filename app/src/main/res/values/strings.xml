@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LignaCalc</string>
+
+    <!-- Tool Names -->
+    <string name="tool_schnittgeschwindigkeit">Schnittgeschwindigkeit</string>
+    <string name="tool_schnittgeschwindigkeit_sub">Vc berechnen und prüfen</string>
+    <string name="tool_gehrung">Falsche Gehrung</string>
+    <string name="tool_gehrung_sub">Winkel berechnen</string>
+    <string name="tool_zahnvorschub">Zahnschrittrechner</string>
+    <string name="tool_zahnvorschub_sub">Vorschub pro Zahn</string>
+    <string name="tool_kantenmaterial">Restlänge Kantenmaterial</string>
+    <string name="tool_kantenmaterial_sub">Restlänge auf Rolle</string>
+    <string name="tool_plattenmaterial">Gewicht Plattenmaterial</string>
+    <string name="tool_plattenmaterial_sub">Gewicht berechnen</string>
+    <string name="tool_goldener_schnitt">Goldener Schnitt</string>
+    <string name="tool_goldener_schnitt_sub">Proportionen berechnen</string>
+    <string name="tool_holzschwund">Holzschwund</string>
+    <string name="tool_holzschwund_sub">Schwund nach Holzart</string>
+    <string name="tool_einheitenrechner">Einheitenrechner</string>
+    <string name="tool_einheitenrechner_sub">Längen und Flächen</string>
+
+    <!-- Common Labels -->
+    <string name="material">Material</string>
+    <string name="angle">Winkel</string>
+    <string name="result">Ergebnis</string>
+    <string name="saegen">Sägen</string>
+    <string name="fraesen">Fräsen</string>
+    <string name="tool_diameter">Werkzeugdurchmesser</string>
+    <string name="rpm">Drehzahl</string>
+    <string name="result_vc">Ergebnis Vc</string>
+    <string name="recommended_range">Empfohlener Bereich</string>
+    <string name="teeth">Zähne</string>
+    <string name="result_restlaenge">Ergebnis Restlänge</string>
+    <string name="result_weight">Ergebnis Gewicht</string>
+    <string name="length">Länge</string>
+    <string name="wood_type">Holzart</string>
+    <string name="moisture_change">Änderung Holzfeuchte</string>
+    <string name="dimension">Mass</string>
+    <string name="radial">radial</string>
+    <string name="tangential">tangential</string>
+    <string name="lengths">Längen</string>
+    <string name="areas">Flächen</string>
+    <string name="source_unit">Ausgangseinheit</string>
+
+    <!-- Info Texts -->
+    <string name="info_gehrung">Berechnet die Winkel Alpha und Beta für eine falsche Gehrung aus dem Winkel Gamma sowie den Seitenlängen A und B.</string>
+    <string name="info_schnittgeschwindigkeit">Berechnet die Schnittgeschwindigkeit Vc aus Werkzeugdurchmesser und Drehzahl. Formel: Vc = π × D × n / 60\'000. Grün = im empfohlenen Bereich.</string>
+    <string name="info_zahnvorschub">Berechnet den Vorschub pro Zahn fz. Formel: fz = (V × 1000) / (N × Z).</string>
+    <string name="info_kantenmaterial">Berechnet die Restlänge von Kantenmaterial auf einer Rolle. Formel: Restlänge = π × (ØA² − Øb²) / (4 × S × 1000).</string>
+    <string name="info_plattenmaterial">Berechnet das Gewicht von Plattenmaterial aus den Abmessungen und dem materialspezifischen Gewichtsfaktor.</string>
+    <string name="info_goldener_schnitt">Der Goldene Schnitt teilt eine Strecke so, dass sich die grössere Teilstrecke (Major) zur kleineren (Minor) verhält wie die Gesamtstrecke zur grösseren. Faktor: 1.618.</string>
+    <string name="info_holzschwund">Berechnet den Holzschwund basierend auf Holzart und Feuchtigkeitsänderung. Radial = quer zur Maserung, Tangential = in Richtung der Jahrringe.</string>
+</resources>
