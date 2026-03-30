@@ -20,18 +20,22 @@ class MainActivity : ComponentActivity() {
 
         val prefsRepo = PreferencesRepository(this)
 
+        // Deutsch als Standard setzen (ohne recreate — nur Locale konfigurieren)
+        setLocale("de")
+
         enableEdgeToEdge()
         setContent {
             val scope = rememberCoroutineScope()
-            var currentLocale by remember { mutableStateOf(Locale.getDefault().language) }
+            var currentLocale by remember { mutableStateOf("de") }
             var showLanguageDialog by remember { mutableStateOf(false) }
 
-            // Gespeicherte Sprache laden
+            // Gespeicherte Sprache laden (nur Locale setzen, kein recreate)
             LaunchedEffect(Unit) {
                 prefsRepo.language.collect { savedLang ->
-                    if (savedLang != null && savedLang != currentLocale) {
-                        currentLocale = savedLang
-                        applyLocale(savedLang)
+                    val lang = savedLang ?: "de"
+                    if (lang != currentLocale) {
+                        currentLocale = lang
+                        setLocale(lang)
                     }
                 }
             }
@@ -51,7 +55,8 @@ class MainActivity : ComponentActivity() {
                                 prefsRepo.setLanguage(langCode)
                             }
                             currentLocale = langCode
-                            applyLocale(langCode)
+                            setLocale(langCode)
+                            recreate()
                             showLanguageDialog = false
                         },
                         onDismiss = { showLanguageDialog = false }
@@ -61,13 +66,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun applyLocale(languageCode: String) {
+    /**
+     * Setzt die Locale ohne die Activity neu zu starten.
+     * recreate() wird nur beim manuellen Sprachwechsel aufgerufen.
+     */
+    private fun setLocale(languageCode: String) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val config = Configuration(resources.configuration)
         config.setLocale(locale)
         @Suppress("DEPRECATION")
         resources.updateConfiguration(config, resources.displayMetrics)
-        recreate()
     }
 }

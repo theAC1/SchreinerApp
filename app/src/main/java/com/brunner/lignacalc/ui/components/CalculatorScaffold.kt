@@ -1,5 +1,7 @@
 package com.brunner.lignacalc.ui.components
 
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -13,6 +15,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.brunner.lignacalc.ui.theme.*
 
@@ -22,6 +26,7 @@ fun CalculatorScaffold(
     onBack: () -> Unit,
     infoText: String? = null,
     formula: String? = null,
+    @DrawableRes drawingRes: Int? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
     var showInfo by remember { mutableStateOf(false) }
@@ -107,6 +112,27 @@ fun CalculatorScaffold(
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
             Spacer(modifier = Modifier.height(6.dp))
+
+            // Technische Zeichnung
+            if (drawingRes != null) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(WarmWhite),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = drawingRes),
+                        contentDescription = title,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                }
+            }
+
             content()
             Spacer(modifier = Modifier.height(20.dp))
         }

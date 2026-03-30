@@ -34,7 +34,8 @@ fun GoldenerSchnittScreen(onBack: () -> Unit) {
         title = stringResource(R.string.tool_goldener_schnitt),
         onBack = onBack,
         infoText = stringResource(R.string.info_goldener_schnitt),
-        formula = "(a + b) : a = 1.618"
+        formula = "(a + b) : a = 1.618",
+        drawingRes = R.drawable.drawing_goldener_schnitt
     ) {
 
         // Input-Typ Auswahl

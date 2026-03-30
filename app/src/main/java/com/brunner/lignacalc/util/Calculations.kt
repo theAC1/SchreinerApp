@@ -130,6 +130,103 @@ object Calculations {
     }
 
     /**
+     * Lamello P-System — Verbindungsrechner
+     *
+     * Universelle Formel (verifiziert gegen offiziellen Lamello-Rechner):
+     *
+     *   Gehrung (G):
+     *     X1 = (M/2 + s·cos(α/2)) / sin(α/2)
+     *     X2 = (M/2 - s·cos(α/2)) / sin(α/2)
+     *     Y1 = Y4 = M/2 + s·cos(α/2)
+     *     Y2 = Y3 = M/2 - s·cos(α/2)
+     *
+     *   Stoss (S) / T-Verbindung (T):
+     *     X1 = (M/2 + s·cos(α)) / sin(α)
+     *     X2 = (M/2 - s·cos(α)) / sin(α)
+     *     Y1 = Y4 = M/2 + s·cos(α)
+     *     Y2 = Y3 = M/2 - s·cos(α)
+     *
+     *   Mittelwand (M):
+     *     wie Stoss für α ≤ 90°
+     *     X1/X2 getauscht für α > 90°
+     *
+     * @param m1 Materialstärke Werkstück 1 in mm
+     * @param m2 Materialstärke Werkstück 2 in mm
+     * @param angleDeg Verbindungswinkel in Grad
+     * @param slotOffset s-Wert (Slot-Offset) des Connectors in mm
+     * @param situation Verbindungssituation (S, G, M, T)
+     * @param tolerance Toleranz ± in mm (Standard: 1.1)
+     */
+    data class LamelloResult(
+        val x1: Double,
+        val x2: Double,
+        val x1Min: Double,
+        val x1Max: Double,
+        val x2Min: Double,
+        val x2Max: Double,
+        val y1: Double,
+        val y2: Double,
+        val y3: Double,
+        val y4: Double
+    )
+
+    fun computeLamello(
+        m1: Double,
+        m2: Double,
+        angleDeg: Double,
+        slotOffset: Double,
+        situation: String = "G",
+        tolerance: Double = 1.1
+    ): LamelloResult? {
+        if (m1 <= 0 || m2 <= 0 || angleDeg <= 0 || angleDeg >= 360) return null
+        if (slotOffset < 0) return null
+
+        val halfM = m1 / 2.0
+
+        // Winkel für die Berechnung bestimmen
+        // Gehrung: α/2 (jedes Werkstück wird auf halben Winkel geschnitten)
+        // Stoss/T/Mittelwand: α direkt (Stirnfläche trifft auf Oberfläche)
+        val calcAngleRad = when (situation) {
+            "G" -> (angleDeg / 2.0) * PI / 180.0
+            else -> angleDeg * PI / 180.0
+        }
+
+        val sinA = sin(calcAngleRad)
+        val cosA = cos(calcAngleRad)
+
+        if (sinA <= 0.0) return null
+
+        var x1 = roundTo((halfM + slotOffset * cosA) / sinA, 1)
+        var x2 = roundTo((halfM - slotOffset * cosA) / sinA, 1)
+
+        // Mittelwand: X1/X2 tauschen bei α > 90°
+        if (situation == "M" && angleDeg > 90) {
+            val tmp = x1
+            x1 = x2
+            x2 = tmp
+        }
+
+        // Y-Werte: Nuttiefe in die Werkstücke
+        val y1 = roundTo(halfM + slotOffset * cosA, 1)
+        val y2 = roundTo(halfM - slotOffset * cosA, 1)
+        val y3 = roundTo(m1 / 2.0 - slotOffset * cosA, 1)
+        val y4 = roundTo(m1 / 2.0 + slotOffset * cosA, 1)
+
+        return LamelloResult(
+            x1 = x1,
+            x2 = x2,
+            x1Min = roundTo(x1 - tolerance, 1),
+            x1Max = roundTo(x1 + tolerance, 1),
+            x2Min = roundTo(x2 - tolerance, 1),
+            x2Max = roundTo(x2 + tolerance, 1),
+            y1 = y1,
+            y2 = y2,
+            y3 = y3,
+            y4 = y4
+        )
+    }
+
+    /**
      * Einheiten umrechnen
      */
     fun convertUnit(value: Double, factor: Double): Double {

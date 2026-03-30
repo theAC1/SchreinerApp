@@ -20,6 +20,8 @@
     <string name="tool_holzschwund_sub">Schwund nach Holzart</string>
     <string name="tool_einheitenrechner">Einheitenrechner</string>
     <string name="tool_einheitenrechner_sub">Längen und Flächen</string>
+    <string name="tool_lamello">Lamello P-System</string>
+    <string name="tool_lamello_sub">Verbindungsrechner</string>
 
     <!-- Common Labels -->
     <string name="material">Material</string>
@@ -56,4 +58,22 @@
     <string name="info_plattenmaterial">Berechnet das Gewicht von Plattenmaterial aus den Abmessungen und dem materialspezifischen Gewichtsfaktor.</string>
     <string name="info_goldener_schnitt">Der Goldene Schnitt teilt eine Strecke so, dass sich die grössere Teilstrecke (Major) zur kleineren (Minor) verhält wie die Gesamtstrecke zur grösseren. Faktor: 1.618.</string>
     <string name="info_holzschwund">Berechnet den Holzschwund basierend auf Holzart und Feuchtigkeitsänderung. Radial = quer zur Maserung, Tangential = in Richtung der Jahrringe.</string>
+    <string name="info_lamello">Berechnet die Fräspositionen X1 und X2 sowie die Materialpositionierungen Y1–Y4 für Lamello P-System Verbinder. Wähle Verbindungssituation, Winkel und Materialstärken.</string>
+
+    <!-- Lamello Labels -->
+    <string name="lamello_situation">Verbindungssituation</string>
+    <string name="lamello_angle">Winkel α [°]</string>
+    <string name="lamello_m1">Materialstärke M1 [mm]</string>
+    <string name="lamello_m2">Materialstärke M2 [mm]</string>
+    <string name="lamello_calculate">Berechnen</string>
+    <string name="lamello_connector">Verbinder</string>
+    <string name="lamello_processing">Bearbeitungsinformation</string>
+    <string name="lamello_without_spacer">Ohne Spacer</string>
+    <string name="lamello_with_2mm">Mit 2mm Spacer</string>
+    <string name="lamello_with_4mm">Mit 4mm Spacer</string>
+    <string name="lamello_disclaimer">Alle Angaben ohne Gewähr. Jede Verbindung hängt stark von der Anwendung, Grösse und dem Material ab. Wir empfehlen die Anfertigung eines Probestücks.</string>
+    <string name="lamello_situation_s">Stoss</string>
+    <string name="lamello_situation_g">Gehrung</string>
+    <string name="lamello_situation_m">Mittelwand</string>
+    <string name="lamello_situation_t">T-Verbindung</string>
 </resources>

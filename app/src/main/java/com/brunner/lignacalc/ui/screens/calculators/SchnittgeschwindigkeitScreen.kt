@@ -43,7 +43,8 @@ fun SchnittgeschwindigkeitScreen(onBack: () -> Unit) {
         title = stringResource(R.string.tool_schnittgeschwindigkeit),
         onBack = onBack,
         infoText = stringResource(R.string.info_schnittgeschwindigkeit),
-        formula = "Vc = \u03C0 \u00D7 D \u00D7 n / 60\u2019000"
+        formula = "Vc = \u03C0 \u00D7 D \u00D7 n / 60\u2019000",
+        drawingRes = R.drawable.drawing_schnittgeschwindigkeit
     ) {
 
         MaterialDropdown(

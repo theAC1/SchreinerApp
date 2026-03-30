@@ -17,6 +17,7 @@ sealed class Screen(val route: String) {
     object GoldenerSchnitt : Screen("goldener_schnitt")
     object Holzschwund : Screen("holzschwund")
     object Einheitenrechner : Screen("einheitenrechner")
+    object Lamello : Screen("lamello")
 }
 
 @Composable
@@ -56,6 +57,9 @@ fun AppNavigation(navController: NavHostController, onOpenSettings: () -> Unit =
         }
         composable(Screen.Einheitenrechner.route) {
             EinheitenrechnerScreen(onBack = { navController.popBackStack() })
+        }
+        composable(Screen.Lamello.route) {
+            LamelloScreen(onBack = { navController.popBackStack() })
         }
     }
 }

@@ -66,6 +66,9 @@ dependencies {
     // Google Fonts (Fraunces + Outfit)
     implementation("androidx.compose.ui:ui-text-google-fonts:1.7.6")
 
+    // Coil (Async Image Loading)
+    implementation("io.coil-kt:coil-compose:2.7.0")
+
     // Debug
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")

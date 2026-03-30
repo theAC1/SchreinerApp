@@ -30,7 +30,8 @@ fun KantenmaterialScreen(onBack: () -> Unit) {
         title = stringResource(R.string.tool_kantenmaterial),
         onBack = onBack,
         infoText = stringResource(R.string.info_kantenmaterial),
-        formula = "L = \u03C0 \u00D7 (\u00D8A\u00B2 \u2212 \u00D8b\u00B2) / (4 \u00D7 S \u00D7 1000)"
+        formula = "L = \u03C0 \u00D7 (\u00D8A\u00B2 \u2212 \u00D8b\u00B2) / (4 \u00D7 S \u00D7 1000)",
+        drawingRes = R.drawable.drawing_kantenmaterial
     ) {
 
         NumberInputField(

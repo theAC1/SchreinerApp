@@ -84,7 +84,7 @@ fun ResultCard(
 
             // Wert
             Row(
-                verticalAlignment = Alignment.Baseline,
+                verticalAlignment = Alignment.Bottom,
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(

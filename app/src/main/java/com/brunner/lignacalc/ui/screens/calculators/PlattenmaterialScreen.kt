@@ -30,7 +30,8 @@ fun PlattenmaterialScreen(onBack: () -> Unit) {
         title = stringResource(R.string.tool_plattenmaterial),
         onBack = onBack,
         infoText = stringResource(R.string.info_plattenmaterial),
-        formula = "G = L \u00D7 B \u00D7 D \u00D7 Faktor"
+        formula = "G = L \u00D7 B \u00D7 D \u00D7 Faktor",
+        drawingRes = R.drawable.drawing_plattenmaterial
     ) {
 
         MaterialDropdown(
